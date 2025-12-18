@@ -34,10 +34,8 @@ A simple, modern Expense Tracker web application that persists data to the cloud
 
 ### 1\. Clone the Repository
 
-```
-bash
-   git clone https://github.com/abhayy11/expense-tracker.git  cd expense-tracker   
-   
+``` bash
+   git clone https://github.com/abhayy11/expense-tracker.git  cd expense-tracker    
 ```
 
 ### 2\. Set up Supabase
@@ -48,8 +46,7 @@ bash
     
 3.  Go to the **SQL Editor** and run the following query to create the table:
     
-```
-SQL
+```SQL
    CREATE TABLE public.transactions (    
     id uuid NOT NULL DEFAULT gen_random_uuid(),    
     name text NOT NULL,    
@@ -58,7 +55,7 @@ SQL
     type text NOT NULL CHECK (type IN ('income', 'expense')),    
     created_at timestamp with time zone DEFAULT now(),    
     PRIMARY KEY (id)  
-    );   
+   );   
    ```
 
 1.  **Disable Row Level Security (RLS)** (since we haven't implemented Auth yet):
@@ -72,12 +69,9 @@ SQL
     
 2.  Replace the placeholder credentials at the top of the file with your own:
     
-```
-JavaScript
-
+```JavaScript
    const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';  
-   const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';   
-   
+   const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';    
 ```
 
 _(You can find these in Supabase Settings > API)_.
