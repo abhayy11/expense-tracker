@@ -1,6 +1,6 @@
 // 1. Initialize Supabase
-const SUPABASE_URL = 'https://btkswghqyxlrdchpxrhg.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ0a3N3Z2hxeXhscmRjaHB4cmhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5NTkzOTYsImV4cCI6MjA4MTUzNTM5Nn0.7aovWSWW5c4b5Vfi7mQsacMNdh5Fx39ss6qOLf_QTVA';
+const SUPABASE_URL = 'SUPABASE_URL_PLACEHOLDER';
+const SUPABASE_KEY = 'SUPABASE_KEY_PLACEHOLDER';
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Global state
@@ -23,7 +23,6 @@ dateInput.defaultValue = new Date().toISOString().split("T")[0];
 
 form.addEventListener("submit", addTransaction);
 
-// --- HELPER FUNCTIONS ---
 
 function formatCurrency(value) {
   if (value === 0) {
@@ -51,12 +50,10 @@ function createItem({ id, name, amount, date, type }) {
       </div>
     `;
 
-  // Find the button we just added inside the 'li'
   const deleteBtn = li.querySelector(".delete-btn");
 
-  // Add the click event ONLY to the button
   deleteBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // Prevents clicking the row from doing anything else
+    e.stopPropagation(); 
     if (confirm("Delete transaction?")) {
       deleteTransaction(id);
     }
